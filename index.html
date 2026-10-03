@@ -1,72 +1,167 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <style>
-        /* styles section */
-        body {
-            margin: 0;
-            padding: 0;
-            font-family: Arial, sans-serif;
-            background-color: #f0f0f0;
-        }
-        .container {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-        }
-        .education {
-            background-color: #ffffff;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        }
-
-        .dark-theme {
-            background-color: #222d36;
-            color: #ffffff;
-        }
-
-        .dark-theme .education {
-            color: black;
-            background-color: white;
-            box-shadow: 0 4px 8px rgba(81, 25, 25, 0.1);
-        }
-
-    </style>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Peace Cyebukayire</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600&family=Source+Sans+3:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root{--sky1:#e3f2fd;--sky2:#f7fbff;--ink:#14324d;--muted:#4b6a85;--link:#1b66a8;--line:#b9d9f0;--panel:#ffffffcc;--sun:#ffd25e;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--sky1:#10243a;--sky2:#1a3a58;--ink:#e8f2fb;--muted:#9bb8d2;--link:#8cc7f5;--line:#2f5372;--panel:#10243acc}}
+:root[data-theme="dark"]{--sky1:#10243a;--sky2:#1a3a58;--ink:#e8f2fb;--muted:#9bb8d2;--link:#8cc7f5;--line:#2f5372;--panel:#10243acc}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*{box-sizing:border-box}
+body{margin:0;font:18px/1.6 "Source Sans 3",system-ui,sans-serif;color:var(--ink);background:linear-gradient(var(--sky1),var(--sky2)) fixed;background-color:var(--sky1);min-height:100vh}
+#sun{position:fixed;top:0;left:0;width:260px;height:260px;margin:-130px 0 0 -130px;border-radius:50%;background:radial-gradient(circle,var(--sun) 0%,transparent 68%);opacity:.3;z-index:0;pointer-events:none}
+.wrap{position:relative;z-index:1;max-width:44rem;margin:0 auto;padding:0 1.25rem}
+nav{display:flex;gap:1.3rem;flex-wrap:wrap;padding:1.2rem 0;border-bottom:1px solid var(--line);font-weight:600}
+a{color:var(--ink);text-decoration:none}a:hover{text-decoration:underline}
+nav a{text-decoration:none}
+nav a[aria-current="page"]{color:var(--ink);border-bottom:2px solid var(--sun)}
+nav button{margin-left:auto;font:inherit;background:none;border:1px solid var(--line);color:var(--ink);border-radius:2rem;padding:.1rem .8rem;cursor:pointer}
+h1,h2{font-family:Fraunces,Georgia,serif;font-weight:600;line-height:1.15}
+h1{font-size:clamp(2.2rem,6.5vw,3.3rem);margin:2.6rem 0 1rem}
+h2{font-size:1.55rem;margin:2.4rem 0 .7rem}
+.page{display:none;padding-bottom:3rem}
+.page.on{display:block}
+.links{display:flex;gap:1.1rem;flex-wrap:wrap;margin:1.2rem 0}
+ul.list{list-style:none;padding:0;margin:0}
+ul.list li{padding:.75rem 0;border-bottom:1px dashed var(--line)}
+.yr{color:var(--muted);font-variant-numeric:tabular-nums;margin-right:.6rem}
+.sub{color:var(--muted);display:block}
+.chips{display:flex;gap:.5rem;flex-wrap:wrap;margin-bottom:1rem}
+.chips button{font:inherit;font-size:.95rem;border:1px solid var(--line);background:var(--panel);color:var(--ink);border-radius:2rem;padding:.2rem .9rem;cursor:pointer}
+.chips button[aria-pressed="true"]{background:var(--link);border-color:var(--link);color:#fff}
+.note{color:var(--muted);font-size:.95rem}
+ul.ex li{display:grid;grid-template-columns:11rem 1fr;gap:.8rem}ul.ex .yr{margin:0}.todo{font-style:italic}ul.ex li>div>p{margin:.3rem 0 0}ul.ex li.org{display:block}ul.ex li.org>strong{display:block}ul.ex li.org ul{list-style:none;padding:0;margin:.3rem 0 0}ul.ex li.org ul li{border:0;padding:.2rem 0}
+:focus-visible{outline:3px solid var(--link);outline-offset:2px}
+@media (max-width:520px){ul.ex li{display:block}ul.ex .yr{display:block}#sun{width:180px;height:180px;margin:-90px 0 0 -90px}}
+</style>
 </head>
 <body>
-    <!-- the education and skills section -->
-    <div class="container">
-        <button onclick="changeTheme()">Change Theme</button>
+<div id="sun" aria-hidden="true"></div>
+<div class="wrap">
+<nav aria-label="Pages" id="nav">
+<a href="#about">About</a><a href="#publications">Publications</a><a href="#awards">Awards</a><a href="#extracurriculars">Extracurriculars</a><a href="#volunteering">Volunteering</a><a href="#talks">Talks</a><a href="#essays">Essays</a>
+<button id="mode" type="button" aria-label="Switch light and dark theme">Dusk</button>
+</nav>
 
-        <h1>Hi, I'm Peace, welcome to my page</h1>
-        <div class="education">
-            <h2>Education</h2>
-            <ul>
-                <li>Emory University (class of 2027)</li>
-                <li>Math and computer Science (BS)</li>
-            </ul>
+<main>
+<div class="page" id="about">
+<h1>Peace Cyebukayire</h1>
+<p>I am an undergraduate at Emory University studying Mathematics and Computer Science, graduating in May 2027. I am writing an honors thesis on Kinyarwanda natural language processing in the Emory NLP Lab, advised by <a href="https://emorynlp.org/people/jinho-choi/" target="_blank" rel="noopener">Prof. Jinho Choi</a>.</p>
+<p>Research interests:</p>
+<ul>
+<li>Natural language processing</li>
+<li>Conversational AI</li>
+<li>Endangered languages</li>
+<li>Medical imaging</li>
+</ul>
+<div class="links"><a href="mailto:pcyebuk@emory.edu">Email</a><a href="https://scholar.google.com/citations?user=7fcf3IQAAAAJ&amp;hl=en">Google Scholar</a><a href="https://www.semanticscholar.org/author/Peace-Cyebukayire/2356572802">Semantic Scholar</a><a href="https://linkedin.com/in/cyebukayire">LinkedIn</a><a href="https://github.com/cyebukayire">GitHub</a></div>
+<h2>Selected Publications</h2>
+<p class="note">See <a href="#publications">all publications</a>.</p>
+<ul class="list"><li><strong><a href="https://aclanthology.org/2026.sigdial-1.3/" target="_blank" rel="noopener">Tinker Tales: A Tangible Dialogue System for Child–AI Co-Creative Storytelling</a></strong><span class="sub">Nayoung Choi, Jiseung Hong, <b>Peace Cyebukayire</b>, Ikseon Choi, Jinho D Choi</span><span class="sub">Proceedings of the 27th Annual Meeting of the Special Interest Group on Discourse and Dialogue, Aug 2026</span></li>
+<li><strong><a href="https://arxiv.org/abs/2504.13969" target="_blank" rel="noopener">Tinker Tales: Interactive storytelling framework for early childhood narrative development and AI literacy</a></strong><span class="sub">Nayoung Choi, <b>Peace Cyebukayire</b>, Jinho D Choi</span><span class="sub">arXiv preprint arXiv:2504.13969, Apr 2025 · <a href="https://arxiv.org/pdf/2504.13969" target="_blank" rel="noopener">PDF</a></span></li></ul>
+</div>
 
-            <h2>Skills</h2>
-            <ul>
-                <!-- mentioning a few of the skills -->
-                <li>Python, Assembly, JavaScript, Java</li>
-                <li>React, Vuejs, Django, MySQL, MongoDB</li>
-                <li>GPU, SLURM, NLU, NLP</li>
-            </ul>
-        </div>
-    </div>
-    
-</body>
+<div class="page" id="publications">
+<h1>Publications</h1>
+<ul class="list"><li><strong><a href="https://aclanthology.org/2026.sigdial-1.3/" target="_blank" rel="noopener">Tinker Tales: A Tangible Dialogue System for Child–AI Co-Creative Storytelling</a></strong><span class="sub">Nayoung Choi, Jiseung Hong, <b>Peace Cyebukayire</b>, Ikseon Choi, Jinho D Choi</span><span class="sub">Proceedings of the 27th Annual Meeting of the Special Interest Group on Discourse and Dialogue, Aug 2026</span></li>
+<li><strong><a href="https://arxiv.org/abs/2504.13969" target="_blank" rel="noopener">Tinker Tales: Interactive storytelling framework for early childhood narrative development and AI literacy</a></strong><span class="sub">Nayoung Choi, <b>Peace Cyebukayire</b>, Jinho D Choi</span><span class="sub">arXiv preprint arXiv:2504.13969, Apr 2025 · <a href="https://arxiv.org/pdf/2504.13969" target="_blank" rel="noopener">PDF</a></span></li></ul>
+</div>
+
+<div class="page" id="awards">
+<h1>Awards</h1>
+<ul class="list ex">
+<li><span class="yr">Mar 2025</span><div><strong><a href="https://techcommunity.microsoft.com/discussions/azure/announcing-the-winners-of-the-march-innovation-challenge-hackathon/4398522" target="_blank" rel="noopener">3rd Place Winner, Microsoft March Hackathon</a></strong><span class="sub">Issued by Microsoft</span><p>Selected among over 300 participants. Recognized for building a full-stack solution leveraging Azure services and NLP to address employee turnover challenges in supported employment settings.</p></div></li>
+<li><span class="yr">Nov 2024</span><div><strong><a href="https://oue.college.emory.edu/scholars/scholarships/woodruff-scholarships/index.html" target="_blank" rel="noopener">Robert W. Woodruff Dean's Achievement Scholar</a></strong><span class="sub">Issued by Emory University</span><p>A full-ride scholarship to Emory awarded to one high-achieving student in the class of 2027.</p></div></li>
+<li><span class="yr">Apr 2024</span><div><strong><a href="https://www.facebook.com/RotaryAWE/videos/georgia-rotary-student-program-grsp-student-peace-cyebukayire-received-the-prest/1528093164413795/" target="_blank" rel="noopener">Barbara M. and Donald L. Thomas Peace Award (video)</a></strong><span class="sub">Issued by Georgia Rotary Student Program</span><p>Awarded to one student in 2024 for a significant contribution to peace-building.</p></div></li>
+<li><span class="yr">Aug 2023</span><div><strong><a href="https://news.emory.edu/stories/2024/01/student-peace-cyebukayire-wins-prestigious-georgia-rotary-student-program" target="_blank" rel="noopener">Georgia Rotary Student Program Scholar</a></strong><span class="sub">Issued by Georgia Rotary Student Program</span><p>Selected as a fully funded international scholar based on academic excellence, leadership, and community service.</p></div></li>
+<li><span class="yr">Mar 2023</span><div><strong>Robert W. Woodruff Scholar Finalist</strong><span class="sub">Issued by Emory University</span><p>Selected from the Emory College application pool of 2023 to attend Scholars Week at Emory.</p></div></li>
+<li><span class="yr">Feb 2021</span><div><strong>Certified Teacher Assistant and Lesson Planner</strong><span class="sub">Issued by GirlsCodeIt</span><p>Recognized for my commitment to education and volunteerism at the GirlsCodeIt organization.</p></div></li>
+</ul>
+</div>
+
+<div class="page" id="extracurriculars">
+<h1>Extracurriculars</h1>
+<p>A common thread runs through what I do outside the lab: helping other people learn to build.</p>
+<h2>Emory University</h2>
+<ul class="list ex">
+<li class="org"><strong>Emory International Council (EIC)</strong><ul class="ex"><li><span class="yr">Sep 2026 – Present</span>Co-captain</li><li><span class="yr">Oct 2024 – Sep 2026</span>Board member</li></ul></li>
+<li class="org"><strong>Emory Scholars Program</strong><ul class="ex"><li><span class="yr">Jan 2025 – Present</span>Ambassador</li></ul></li>
+<li class="org"><strong>International Student Welcome (ISW)</strong><ul class="ex"><li><span class="yr">Jan 2025 – Present</span>Academic Fellow Captain</li><li><span class="yr">Jan 2024 – Jan 2025</span>Academic Fellow</li></ul></li>
+<li class="org"><strong>Girls Who Code</strong><ul class="ex"><li><span class="yr">Nov 2023 – Present</span>Volunteer instructor</li></ul></li>
+<li class="org"><strong>African Student Association (ASA)</strong><ul class="ex"><li><span class="yr">Nov 2023 – Present</span>Runway model</li></ul></li>
+<li class="org"><strong>Emory BlackStar Magazine and Emory Bookstore Fashion Show</strong><ul class="ex"><li><span class="yr">Nov 2023 – Present</span>Runway model</li></ul></li>
+<li class="org"><strong>Emory Women in STEM</strong><ul class="ex"><li><span class="yr">Nov 2023 – Jan 2025</span>Vice President of Communications</li></ul></li>
+<li class="org"><strong>Women's Club Volleyball</strong><ul class="ex"><li><span class="yr">Sep 2023 – May 2025</span>Member</li></ul></li>
+</ul>
+<h2>Rwanda Coding Academy (RCA)</h2>
+<p class="note">Advanced level in Software Engineering and Embedded Systems, Feb 2019 – Aug 2022.</p>
+<ul class="list ex">
+<li class="org"><strong>RCA Volleyball Team</strong><ul class="ex"><li><span class="yr">Jan 2021 – Aug 2022</span>Captain</li></ul></li>
+<li class="org"><strong>RCA Robotics Club</strong><ul class="ex"><li><span class="yr">Mar 2019 – Aug 2022</span>Member</li></ul></li>
+<li class="org"><strong>RCA Student Body</strong><ul class="ex"><li><span class="yr">Mar 2019 – Jan 2021</span>President</li></ul></li>
+</ul>
+</div>
+
+<div class="page" id="volunteering">
+<h1>Volunteering</h1>
+<ul class="list ex">
+<li class="org"><strong>Annual Meeting of the Special Interest Group on Discourse and Dialogue (SIGdial)</strong><ul class="ex"><li><span class="yr"><span class="todo">Summer 2026</span></span>Student volunteer</li></ul></li>
+<li class="org"><strong>CodePath</strong><ul class="ex"><li><span class="yr">Fall 2025 – Present</span>Peer mentor</li></ul></li>
+<li class="org"><strong>International Computer Science Competition</strong><ul class="ex"><li><span class="yr">Sep 2025 – Present</span>Ambassador</li></ul></li>
+<li class="org"><strong>AnitaB.org</strong><ul class="ex"><li><span class="yr">Aug 2023 – Sep 2023</span>Open Source Day mentor</li></ul></li>
+<li class="org"><strong>Command Tech</strong><ul class="ex"><li><span class="yr">Aug 2021 – Sep 2022</span>Coding mentor</li></ul></li>
+<li class="org"><strong>She Code Africa</strong><ul class="ex"><li><span class="yr">May 2020 – Jan 2024</span>Back end developer</li><li><span class="yr">Jul 2019 – Jan 2024</span>Technical lead</li></ul></li>
+<li class="org"><strong>GirlsCodeIt</strong><ul class="ex"><li><span class="yr">Feb 2019 – Jun 2023</span>Coding teacher and lesson planner</li></ul></li>
+</ul>
+</div>
+
+<div class="page" id="talks">
+<h1>Talks and Presentations</h1>
+<ul class="list ex">
+<li><span class="yr">Jun 2026</span><div><strong>Rwanda’s Journey to Unity and Reconciliation</strong><span class="sub">Classroom presentation for Emory’s Monastic Students, Emory University</span><span class="sub">Led by Dr. Jane O’Connor and Dr. Levin Arnsperger</span></div></li>
+<li><span class="yr">Aug 2025</span><div><strong>Kinyarwanda NLP Research Presentation</strong><span class="sub">Ministry of ICT and Innovation, Kigali, Rwanda</span><span class="sub">Mentors: Mr. Fiacre Mushimire Niyigena and Miss Gaelle Umutoni</span></div></li>
+<li><span class="yr">Aug 2025</span><div><strong>Designing AI for Children</strong><span class="sub">The GYM program, African Leadership University (ALU), Kigali, Rwanda</span></div></li>
+<li><span class="yr">Jul 2025 – Present</span><div><strong>Build with AI workshop series (Vertex AI, Gemini, and Streamlit)</strong><span class="sub">GDG Kigali, Kigali, Rwanda</span><span class="sub">Study jams for 100+ developers</span></div></li>
+<li><span class="yr">Jun 2025</span><div><strong>Voice-Assisted USSD System</strong><span class="sub">Language Technologies, Ministry of ICT and Innovation, Kigali, Rwanda</span><span class="sub">Mentors: Mr. Fiacre Mushimire Niyigena and Miss Gaelle Umutoni</span></div></li>
+<li><span class="yr">May 2024</span><div><strong>Rwanda’s Journey to Unity and Reconciliation</strong><span class="sub">Classroom presentation for Emory’s Monastic Students, Emory University</span><span class="sub">Led by Dr. Jane O’Connor</span></div></li>
+<li><span class="yr">Jul 2023</span><div><strong>Student Representative Speech</strong><span class="sub">Rwanda Coding Academy and Nyabihu TVET School Prom Ceremony</span></div></li>
+</ul>
+</div>
+
+<div class="page" id="essays">
+<h1>Essays</h1>
+<div class="chips" role="group" aria-label="Filter essays by topic" id="chips"></div>
+<ul class="list" id="elist"></ul>
+<p class="note">Sample titles for the preview only.</p>
+</div>
+</main>
+</div>
 <script>
-    function changeTheme() {
-        document.body.classList.toggle("dark-theme");
-    }
-
+const pages=["about","publications","awards","extracurriculars","volunteering","talks","essays"];
+function show(){const id=pages.includes(location.hash.slice(1))?location.hash.slice(1):"about";
+pages.forEach(p=>document.getElementById(p).classList.toggle("on",p===id));
+document.querySelectorAll("#nav a").forEach(a=>a.getAttribute("href")==="#"+id?a.setAttribute("aria-current","page"):a.removeAttribute("aria-current"));
+scrollTo(0,0);place()}
+const essays=[["2026","Why Kinyarwanda needs its own tokenizer","AI"],["2026","What orientation week taught me about belonging","Studentship"],["2025","Umuganda and the idea of shared work","Rwanda"],["2025","Taste of Africa: a runway as a classroom","Culture"],["2025","The proof I keep returning to","Math"]];
+const topics=["All","AI","Studentship","Rwanda","Culture","Math"];let cur="All";
+const list=document.getElementById("elist"),chips=document.getElementById("chips");
+function draw(){list.innerHTML=essays.filter(e=>cur==="All"||e[2]===cur).map(e=>`<li><span class="yr">${e[0]}</span>${e[1]} <span class="note">${e[2]}</span></li>`).join("");
+chips.innerHTML=topics.map(t=>`<button type="button" aria-pressed="${t===cur}" data-t="${t}">${t}</button>`).join("")}
+chips.addEventListener("click",e=>{const t=e.target.dataset.t;if(t){cur=t;draw()}});draw();
+const sun=document.getElementById("sun");
+function place(){const max=Math.max(1,document.documentElement.scrollHeight-innerHeight),p=Math.min(1,scrollY/max);
+const x=innerWidth*(.66+.18*Math.sin(p*Math.PI)),y=40+p*(innerHeight-240);
+sun.style.transform=`translate(${x}px,${y}px)`;
+sun.style.setProperty("--sun",`rgb(255,${Math.round(210-60*p)},${Math.round(94-24*p)})`)}
+addEventListener("scroll",place,{passive:true});addEventListener("resize",place);addEventListener("hashchange",show);show();
+const btn=document.getElementById("mode"),root=document.documentElement;
+btn.addEventListener("click",()=>{const dark=getComputedStyle(root).getPropertyValue("--ink").trim()==="#e8f2fb";root.dataset.theme=dark?"light":"dark";btn.textContent=dark?"Dusk":"Day"});
 </script>
+</body>
 </html>
